@@ -36,4 +36,8 @@ def plot_historical_data(ticker: Ticker):
     bokeh.plotting.show(p)
 
 if __name__ == '__main__':
-    plot_historical_data(Ticker('2312.TW'))
+    import sys
+    if len(sys.argv) != 2:
+        print("Usage: python -m view.visualization <ticker_symbol>")
+        sys.exit(1)
+    plot_historical_data(Ticker(sys.argv[1]))
